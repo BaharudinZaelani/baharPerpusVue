@@ -21,8 +21,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('book', function(Request $request){
+    
     $bookCollection = new Books();
     if ( isset($request->token) ){
+        if(isset($request->lower)){
+            return $bookCollection->getByLower($request->lower, $request->token);
+        }
         if( count($request->all()) >= 1 ){
             if( isset($request->judul) ){
                 return $bookCollection->findByTitle($request->judul, $request->token);
@@ -47,6 +51,8 @@ Route::get('book', function(Request $request){
             $all = new Books();
             return $all->index($request->token);
         }
+
+        
     }else {
         return [
             'pesan dari bahar' => 'Harap masukan token'

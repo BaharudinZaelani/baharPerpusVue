@@ -38,7 +38,8 @@
         <div class="wrapper" id="app">
             <navigation title="PerpusKu.store"></navigation>
             <div class="content">
-                <router-view ></router-view>
+                    {{-- {{ $param }} --}}
+                <router-view></router-view>
             </div>
         </div>
 

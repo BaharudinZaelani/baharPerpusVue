@@ -74,6 +74,18 @@ class BookCollection extends Controller
         return $book;
     }
 
+    public function getByLower($lower, $token){
+        $this->cekToken($token);
+        $book = Books::where('lower', $lower)->get();
+        if( $book->count() == 0 ){
+            return [
+                'Status' => '404',
+                'Message' => 'Not Found'
+            ];
+        }
+        return $book;
+    }
+
     public function delete($id){
         $book = Books::where('id', $id)->get();
         $count = $book->count();

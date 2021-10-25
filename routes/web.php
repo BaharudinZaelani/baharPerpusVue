@@ -19,7 +19,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/vue');
 });
 
 Auth::routes();
@@ -39,7 +39,9 @@ Route::post('/book/import', [DashboardController::class, 'importBook'])->name('i
 Route::get('/buku/pinjam/{id}', [Rent::class, 'rent']);
 
 // vue
-Route::get('/vue/{any?}', function($param = null){
+Route::get('/vue/{any?}', function(){
     return view('vue');
-
+});
+Route::get('/vue/detail/{any?}', function(){
+    return view('vue');
 });

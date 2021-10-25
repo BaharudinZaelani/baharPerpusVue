@@ -1,6 +1,7 @@
 <template>
     <div class="wrp">
         <!-- website Settings -->
+        {{ $route.params.param }}
         <div class="conainer">
             <h3>Custom Website</h3>
         </div>
@@ -9,7 +10,7 @@
             <h3>API -----</h3>
             <div class="col-4">
                 <router-link
-                    to="/about"
+                    :to="'/vue/detail/' + item.lower"
                     class="card"
                     v-for="item in book"
                     :key="item.id"
@@ -40,12 +41,11 @@ export default {
         const urlBukuApi = "http://127.0.0.1:8000/api/book?token=";
         const token =
             "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IlRoZVphd3ciLCJyb2xlIjoidXNlciIsImV4cGlyZWQiOjI2fQ.5ijP1iEFW2B6mNIrnu_RWER6NoSOSmeHVaBN-AiTV5o";
-        // const bukuApi = [];
+
         axios
             .get(urlBukuApi + token)
             .then(res => {
                 this.book = res.data.data;
-                console.log(res.data.data);
             })
             .catch(function(e) {
                 alert(e);
