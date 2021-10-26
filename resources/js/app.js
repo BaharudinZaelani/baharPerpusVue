@@ -1,11 +1,14 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+// require("./bootstrap");
 
-require("./bootstrap");
-const axios = require("axios").default;
+try {
+    window.Popper = require("popper.js").default;
+    window.$ = window.jQuery = require("jquery");
+
+    require("bootstrap");
+} catch (e) {}
+window.axios = require("axios");
+
+window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
 window.Vue = require("vue").default;
 
