@@ -2221,7 +2221,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IlRoZVphd3ciLCJyb2xlIjoidXNlciIsImV4cGlyZWQiOjI2fQ.5ijP1iEFW2B6mNIrnu_RWER6NoSOSmeHVaBN-AiTV5o";
+    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IlRoZVphd3ciLCJyb2xlIjoidXNlciIsImV4cGlyZWQiOjI3fQ.dM-Oo3uyg4U7oWgOiVLghOVtA1pw5bQQOBnFQP6C6Uk";
     var urlBukuApi = "http://127.0.0.1:8000/api/book?token=" + token + "&lower=";
     axios.get(urlBukuApi + this.$route.params.param).then(function (res) {
       var datas = res.data;
@@ -2280,6 +2280,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "home",
   data: function data() {
@@ -2290,13 +2311,19 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
+    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IlRoZVphd3ciLCJyb2xlIjoidXNlciIsImV4cGlyZWQiOjI3fQ.dM-Oo3uyg4U7oWgOiVLghOVtA1pw5bQQOBnFQP6C6Uk";
     var urlBukuApi = "http://127.0.0.1:8000/api/book?token=";
-    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IlRoZVphd3ciLCJyb2xlIjoidXNlciIsImV4cGlyZWQiOjI2fQ.5ijP1iEFW2B6mNIrnu_RWER6NoSOSmeHVaBN-AiTV5o";
     axios.get(urlBukuApi + token).then(function (res) {
+      console.log(res);
       _this.book = res.data.data;
     })["catch"](function (e) {
       alert(e);
     });
+  },
+  methods: {
+    addBook: function addBook() {
+      alert("add");
+    }
   }
 });
 
@@ -6903,7 +6930,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.col-4[data-v-63cd6604] {\r\n    display: grid;\r\n    grid-template-columns: repeat(auto-fill, 180px);\r\n    grid-gap: 22px;\n}\nh3[data-v-63cd6604] {\r\n    display: inline;\n}\n.card[data-v-63cd6604] {\r\n    position: relative;\r\n    height: 290px;\r\n    background-color: white;\r\n    width: 100%;\r\n    border: 1px solid rgba(19, 7, 7, 0.158);\r\n    overflow: hidden;\n}\n.card[data-v-63cd6604]:hover {\r\n    box-shadow: 0 0 8px rgba(0, 0, 0, 0.267);\n}\n.card:hover .card-img[data-v-63cd6604] {\r\n    padding: 0px;\n}\n.card-img[data-v-63cd6604] {\r\n    height: 180px;\r\n    padding: 12px;\n}\n.card-img img[data-v-63cd6604] {\r\n    width: 100%;\r\n    height: auto;\n}\n.card-body[data-v-63cd6604] {\r\n    text-transform: uppercase;\r\n    position: absolute;\r\n    right: 0;\r\n    left: 0;\r\n    border: 2px solid rgba(0, 0, 0, 0.089);\r\n    /* border-radius: 13px; */\r\n    height: 40%;\r\n    padding: 5px;\r\n    bottom: 0;\r\n    background: white;\r\n    z-index: 1;\n}\nh4[data-v-63cd6604] {\r\n    padding-left: 12px;\n}\n@media only screen and (max-width: 600px) {\n.col-4[data-v-63cd6604] {\r\n        grid-template-columns: 1fr !important;\n}\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.btn[data-v-63cd6604] {\r\n    padding: 8px 19px;\r\n    border-radius: 50px;\r\n    border: 1px solid black;\r\n    display: inline;\r\n    cursor: pointer;\r\n    position: relative;\n}\n.out[data-v-63cd6604] {\r\n    transition: 0.4s;\r\n    position: absolute;\r\n    /* padding: 5px; */\r\n    background-color: blueviolet;\r\n    top: 0;\r\n    opacity: 0.4;\r\n    height: 100%;\r\n    width: 30%;\r\n    border-radius: 50px;\r\n    /* margin: auto; */\n}\n.btn:hover .out[data-v-63cd6604] {\r\n    width: 100%;\n}\n.btn:hover svg[data-v-63cd6604] {\r\n    transform: rotate(180deg);\n}\n.btn svg[data-v-63cd6604] {\r\n    display: inline;\r\n    position: absolute;\r\n    left: 10px;\r\n    height: 100%;\r\n    bottom: 0;\n}\n.btn span[data-v-63cd6604] {\r\n    margin-left: 14px;\n}\n.py-3[data-v-63cd6604] {\r\n    padding: 1.3rem 0;\n}\n.col-4[data-v-63cd6604] {\r\n    display: grid;\r\n    grid-template-columns: repeat(auto-fill, 180px);\r\n    grid-gap: 22px;\n}\nh3[data-v-63cd6604] {\r\n    display: inline;\n}\n.card[data-v-63cd6604] {\r\n    position: relative;\r\n    height: 290px;\r\n    background-color: white;\r\n    width: 100%;\r\n    border: 1px solid rgba(19, 7, 7, 0.158);\r\n    overflow: hidden;\n}\n.card[data-v-63cd6604]:hover {\r\n    box-shadow: 0 0 8px rgba(0, 0, 0, 0.267);\n}\n.card:hover .card-img[data-v-63cd6604] {\r\n    padding: 0px;\n}\n.card-img[data-v-63cd6604] {\r\n    height: 180px;\r\n    padding: 12px;\n}\n.card-img img[data-v-63cd6604] {\r\n    width: 100%;\r\n    height: auto;\n}\n.card-body[data-v-63cd6604] {\r\n    text-transform: uppercase;\r\n    position: absolute;\r\n    right: 0;\r\n    left: 0;\r\n    border: 2px solid rgba(0, 0, 0, 0.089);\r\n    /* border-radius: 13px; */\r\n    height: 40%;\r\n    padding: 5px;\r\n    bottom: 0;\r\n    background: white;\r\n    z-index: 1;\n}\nh4[data-v-63cd6604] {\r\n    padding-left: 12px;\n}\n@media only screen and (max-width: 600px) {\n.col-4[data-v-63cd6604] {\r\n        grid-template-columns: 1fr !important;\n}\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -38846,11 +38873,56 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "wrp" }, [
-    _vm._v("\n    " + _vm._s(_vm.$route.params.param) + "\n    "),
-    _vm._m(0),
-    _vm._v(" "),
     _c("div", { staticClass: "container" }, [
-      _c("h3", [_vm._v("API -----")]),
+      _c("div", { staticClass: "py-3" }, [
+        _c(
+          "div",
+          {
+            staticClass: "btn",
+            on: {
+              click: function($event) {
+                return _vm.addBook()
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "out" }),
+            _vm._v(" "),
+            _c(
+              "svg",
+              {
+                staticClass: "bi bi-plus-square",
+                attrs: {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  width: "16",
+                  height: "16",
+                  fill: "currentColor",
+                  viewBox: "0 0 16 16"
+                }
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    d:
+                      "M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  attrs: {
+                    d:
+                      "M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+                  }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c("span", [_vm._v("ADD BUKU")])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("hr"),
       _vm._v(" "),
       _c(
         "div",
@@ -38884,16 +38956,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "conainer" }, [
-      _c("h3", [_vm._v("Custom Website")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

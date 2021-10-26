@@ -24,7 +24,8 @@ export default {
     },
     created() {
         const token =
-            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IlRoZVphd3ciLCJyb2xlIjoidXNlciIsImV4cGlyZWQiOjI2fQ.5ijP1iEFW2B6mNIrnu_RWER6NoSOSmeHVaBN-AiTV5o";
+            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IlRoZVphd3ciLCJyb2xlIjoidXNlciIsImV4cGlyZWQiOjI3fQ.dM-Oo3uyg4U7oWgOiVLghOVtA1pw5bQQOBnFQP6C6Uk";
+
         const urlBukuApi =
             "http://127.0.0.1:8000/api/book?token=" + token + "&lower=";
         axios
