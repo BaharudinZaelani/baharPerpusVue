@@ -38,10 +38,7 @@
                     :key="item.id"
                 >
                     <div class="card-img">
-                        <img
-                            src="https://wallpaperaccess.com/full/1330900.jpg"
-                            :alt="item.title"
-                        />
+                        <img :src="item.img_url" :alt="item.title" />
                     </div>
                     <div class="card-body">
                         <h4>{{ item.judul_buku }}</h4>
@@ -53,8 +50,11 @@
         <!-- add book modal -->
         <div class="fixed">
             <div class="card-modal">
-                <div class="modal-title">
+                <div class="modal-title" v-if="auth === 'true'">
                     <h4>Tambah Buku</h4>
+                </div>
+                <div class="img py-3">
+                    <img class="img-card" :src="tempBook[0].img_url" />
                 </div>
                 <div class="form-group">
                     <div class="form-control">
@@ -85,6 +85,17 @@
                             type="text"
                             class="input-style"
                             placeholder="penerbit"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-control">
+                        <input
+                            v-model="tempBook[0].img_url"
+                            type="text"
+                            class="input-style"
+                            placeholder="IMG URL"
                         />
                     </div>
                 </div>
@@ -133,6 +144,7 @@ export default {
             tempBook: [
                 {
                     judul: "",
+                    img_url: "",
                     penulis: "",
                     penerbit: ""
                 }
@@ -144,7 +156,7 @@ export default {
             .get(urlBukuApi + token)
             .then(res => {
                 // console.log(res);
-                this.book = res.data.data;
+                this.book = res.data;
             })
             .catch(function(e) {
                 alert(e);
@@ -167,6 +179,7 @@ export default {
             axios
                 .post(urlBukuApi + token, {
                     judul: this.tempBook[0].judul,
+                    img_url: this.tempBook[0].img_url,
                     penerbit: this.tempBook[0].penerbit,
                     penulis: this.tempBook[0].penulis
                 })
@@ -180,7 +193,7 @@ export default {
 
                     axios.get(urlBukuApi + token).then(res => {
                         // console.log(res);
-                        this.book = res.data.data;
+                        this.book = res.data;
                     });
                 })
                 .catch(function(e) {
@@ -201,7 +214,6 @@ export default {
 }
 .fixed {
     background-color: rgba(0, 0, 0, 0.267);
-    /* opacity: 0.2; */
     height: 0;
     width: 100vw;
     position: fixed;
@@ -211,8 +223,18 @@ export default {
     bottom: 0;
     z-index: 99;
     display: grid;
-    margin-top: -60vh;
+    margin-top: -100vw;
     justify-content: center;
+}
+.img {
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.068);
+}
+.img-card {
+    max-height: 239px;
+    padding: 5px;
+    border: 2px solid #00000078;
 }
 .close {
     padding: 5px 12px;
@@ -238,13 +260,13 @@ export default {
     z-index: 88;
     position: relative;
     border-radius: 8px;
-    box-shadow: 0 0 16px rgba(0, 0, 0, 0.247);
+    box-shadow: 0 0 16px rgb(0 0 0 / 25%);
     margin: auto;
-    height: auto;
-    /* transform: scaleX(0); */
     width: 50vw;
     background-color: white;
     padding: 53px 32px;
+    overflow: auto !important;
+    height: 630px;
 }
 .form-group {
     margin-top: 13px;
@@ -332,16 +354,17 @@ h3 {
 .card:hover {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.267);
 }
-.card:hover .card-img {
-    padding: 0px;
-}
-.card-img {
-    height: 180px;
-    padding: 12px;
+.card:hover .card-img img {
+    margin-right: -23px;
 }
 .card-img img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 180px;
+    /* width: auto; */
+    /* height: 180; */
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 .card-body {
     text-transform: uppercase;
@@ -364,10 +387,14 @@ h4 {
         grid-template-columns: 1fr !important;
     }
     .card-modal {
-        width: 80vw !important;
+        width: 97vw !important;
     }
     .fixed {
         background-color: #00000059;
+        margin-top: -180vw;
+    }
+    .card-img img {
+        width: 100%;
     }
 }
 </style>

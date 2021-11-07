@@ -23,7 +23,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/dashboard', [DashboardController::class, 'vueDashboard']);
 Route::get('dashboard/profile', [App\Http\Controllers\ProfileController::class, 'index']);
 Route::post('/edit/name', [App\Http\Controllers\ProfileController::class, 'uabahNama']);
 
@@ -45,3 +45,8 @@ Route::get('/vue/{any?}', function(){
 Route::get('/vue/detail/{any?}', function(){
     return view('vue');
 });
+
+// Route::get('/vue/dashboard', [DashboardController::class, 'vueDashboard']);
+
+// logout vue
+Route::get('logoutVue', [DashboardController::class, 'logoutVue']);

@@ -1,6 +1,9 @@
 import Home from "../views/Home";
 import About from "../views/About";
 import Detail from "../views/Detail";
+
+// dashboard
+import Dashboard from "../views/Dashboard";
 export default {
     mode: "history",
     routes: [
@@ -18,6 +21,13 @@ export default {
             path: "/vue/about",
             name: "About",
             component: About
+        },
+
+        // dashboard path
+        {
+            path: "/vue/dashboard",
+            name: "Dashboard",
+            component: Dashboard
         }
     ]
 };

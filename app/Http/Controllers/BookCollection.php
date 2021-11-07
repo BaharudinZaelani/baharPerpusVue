@@ -34,7 +34,7 @@ class BookCollection extends Controller
     public function index($token){
         $this->cekToken($token);
         $books = Books::all();
-        return BookResource::collection($books);
+        return $books;
     }
 
 
@@ -103,7 +103,7 @@ class BookCollection extends Controller
         ];
     }
 
-    public function tambahBuku($judul, $url, $penerbit, $penulis){
+    public function tambahBuku($judul, $img_url, $url, $penerbit, $penulis){
         $tools = new Tools();
         if ( !isset($judul) ){
             return false;
@@ -117,6 +117,7 @@ class BookCollection extends Controller
         }
         Books::insert([
             'judul_buku' => $judul,
+            'img_url' => $img_url,
             'lower' => $url,
             'penerbit' => $penerbit,
             'penulis' => $penulis,

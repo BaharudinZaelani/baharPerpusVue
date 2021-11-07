@@ -21,6 +21,11 @@ class DashboardController extends Controller
     public function __construct(){
         $this->middleware('auth');
     }
+    // VUE dashboard
+    public function vueDashboard(){
+        view('dashboard/vue');
+        return redirect('/vue/dashboard');
+    }
 
     public function index(){
         if( Auth::user()->role != 'admin' ){
@@ -86,7 +91,7 @@ class DashboardController extends Controller
             }
             // dd($month);
             $buku = Books::all();
-            return view('dashboard.homeAdmin', [
+            return view('dashboard/homeAdmin', [
                 'buku' => $buku,
                 'january' => $month[1],
                 'february' => $month[2],
@@ -119,5 +124,10 @@ class DashboardController extends Controller
     {
         $rent = Rents::find($id);
         $rent->delete();
+    }
+
+    public function logoutVue(){
+        Auth::logout();
+        return redirect('/vue');
     }
 }

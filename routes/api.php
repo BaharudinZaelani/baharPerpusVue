@@ -80,7 +80,7 @@ Route::put('book', function(Request $request){
 
 route::post('book', function(Request $request){
     $bookCollection = new Books();
-    $tambah = $bookCollection->tambahBuku($request->judul, $request->url, $request->penerbit, $request->penulis);
+    $tambah = $bookCollection->tambahBuku($request->judul,  $request->img_url, $request->url, $request->penerbit, $request->penulis);
     if( $tambah ){
         return [
             'Status' => '200 OK',

@@ -17,18 +17,10 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::insert([
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
+            'name' => 'Baharudin Zaelani',
+            'email' => 'zaw@gmail.com',
             'password' => Hash::make('admin123'),
             'role' => 'admin',
-            'created_at' => Carbon::now()
-        ]);
-
-        User::insert([
-            'name' => 'user',
-            'email' => 'user@gmail.com',
-            'password' => Hash::make('user123'),
-            'role' => 'user',
             'created_at' => Carbon::now()
         ]);
     }
